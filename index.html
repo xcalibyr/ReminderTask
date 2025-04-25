@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Доска задач</title>
+    <title>Овчинников Вадим Дмитриевич</title>
     <style>
         :root {
             --default-corner-radius: 10px;
@@ -208,7 +208,6 @@
     </header>
 
     <main>
-        <!-- Форма добавления задачи -->
         <section class="add-new-task">
             <h1>Добавить задачу</h1>
             <form class="bottom-group" id="task-form">
@@ -217,9 +216,7 @@
             </form>
         </section>
 
-        <!-- Доска задач -->
         <section class="desk-tasks">
-            <!-- Колонка 1: Backlog -->
             <div class="display-tasks backlog" data-status="backlog">
                 <h3>Backlog</h3>
                 <ul id="backlog-list">
@@ -229,17 +226,14 @@
                 </ul>
             </div>
 
-            <!-- Колонка 2: В работе -->
             <div class="display-tasks processing" data-status="processing">
                 <h3>В работе</h3>
                 <ul id="processing-list">
                     <li draggable="true" data-task-id="3">Сверстать header</li>
                     <li draggable="true" data-task-id="4">Добавить анимации</li>
                 </ul>
-                <button class="clear-button" id="clear-processing">Очистить</button>
             </div>
 
-            <!-- Колонка 3: Готово -->
             <div class="display-tasks done" data-status="done">
                 <h3>Готово</h3>
                 <ul id="done-list">
@@ -247,7 +241,6 @@
                 </ul>
             </div>
 
-            <!-- Колонка 4: Корзина -->
             <div class="display-tasks basket" data-status="basket">
                 <h3>Корзина</h3>
                 <ul id="basket-list">
@@ -277,7 +270,6 @@
             const taskForm = document.getElementById('task-form');
             const taskInput = document.getElementById('task-input');
             const clearBasketBtn = document.getElementById('clear-basket');
-            const clearProcessingBtn = document.getElementById('clear-processing');
             const lists = {
                 backlog: document.getElementById('backlog-list'),
                 processing: document.getElementById('processing-list'),
@@ -320,8 +312,8 @@
                     }
                 });
 
-                // Обновляем состояние кнопок очистки
-                updateClearButtons();
+                // Обновляем состояние кнопки очистки
+                updateClearButton();
             }
 
             // Получение цвета по статусу
@@ -335,10 +327,9 @@
                 return colors[status];
             }
 
-            // Обновление состояния кнопок очистки
-            function updateClearButtons() {
+            // Обновление состояния кнопки очистки
+            function updateClearButton() {
                 clearBasketBtn.disabled = state.tasks.filter(t => t.status === 'basket').length === 0;
-                clearProcessingBtn.disabled = state.tasks.filter(t => t.status === 'processing').length === 0;
             }
 
             // Обработчик добавления задачи
@@ -362,12 +353,6 @@
             // Обработчик очистки корзины
             clearBasketBtn.addEventListener('click', function() {
                 state.tasks = state.tasks.filter(task => task.status !== 'basket');
-                renderTasks();
-            });
-
-            // Обработчик очистки задач в работе
-            clearProcessingBtn.addEventListener('click', function() {
-                state.tasks = state.tasks.filter(task => task.status !== 'processing');
                 renderTasks();
             });
 
