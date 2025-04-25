@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Овчинников Вадим Дмитриевич</title>
+    <title>Доска задач</title>
     <style>
         :root {
             --default-corner-radius: 10px;
@@ -208,6 +208,7 @@
     </header>
 
     <main>
+        <!-- Форма добавления задачи -->
         <section class="add-new-task">
             <h1>Добавить задачу</h1>
             <form class="bottom-group" id="task-form">
@@ -216,7 +217,9 @@
             </form>
         </section>
 
+        <!-- Доска задач -->
         <section class="desk-tasks">
+            <!-- Колонка 1: Backlog -->
             <div class="display-tasks backlog" data-status="backlog">
                 <h3>Backlog</h3>
                 <ul id="backlog-list">
@@ -226,6 +229,7 @@
                 </ul>
             </div>
 
+            <!-- Колонка 2: В работе -->
             <div class="display-tasks processing" data-status="processing">
                 <h3>В работе</h3>
                 <ul id="processing-list">
@@ -234,6 +238,7 @@
                 </ul>
             </div>
 
+            <!-- Колонка 3: Готово -->
             <div class="display-tasks done" data-status="done">
                 <h3>Готово</h3>
                 <ul id="done-list">
@@ -241,6 +246,7 @@
                 </ul>
             </div>
 
+            <!-- Колонка 4: Корзина -->
             <div class="display-tasks basket" data-status="basket">
                 <h3>Корзина</h3>
                 <ul id="basket-list">
