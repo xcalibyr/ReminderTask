@@ -33,6 +33,10 @@
             padding: 25px 35px;
         }
 
+        header h1 {
+            color: white;
+        }
+
         main {
             padding: 23px 28px;
         }
@@ -90,6 +94,7 @@
             display: flex;
             align-items: flex-start;
             gap: 50px;
+            flex-wrap: nowrap;
         }
 
         .display-tasks {
@@ -122,6 +127,7 @@
             border-radius: var(--default-corner-radius);
             cursor: grab;
             transition: transform 0.2s;
+            word-break: break-word;
         }
 
         .display-tasks li:active {
@@ -199,6 +205,10 @@
 
         .basket li {
             border-left-color: var(--basket-color);
+        }
+
+        .board-no-task {
+            font-size: 30px;
         }
     </style>
 </head>
